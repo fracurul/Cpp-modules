@@ -12,13 +12,15 @@
 
 NAME := account
 
+INCLUDES := includes
+
 CC := c++
 
 CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = Account.cpp tests.cpp\
+COMMON_SRC = src/Account.cpp src/tests.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -26,9 +28,9 @@ all : $(NAME)
 
 OBJ = $(patsubst src/%.cpp, $(OBJDIR)/%.o, $(SRC))
 
-$(OBJDIR)/%.o : src/%.c
+$(OBJDIR)/%.o : src/%.cpp
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
 	@echo "$(ORANGE)Account compiling...$(DEF_COLOR)"

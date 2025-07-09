@@ -6,11 +6,13 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/07/09 09:01:30 by fracurul         ###   ########.fr        #
+#    Updated: 2025/07/09 12:57:51 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := phonebook
+
+INCLUDES := includes
 
 CC := c++
 
@@ -18,7 +20,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = contact.cpp phonebook.cpp main.cpp \
+COMMON_SRC = src/contact.cpp src/phonebook.cpp src/main.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -26,12 +28,12 @@ all : $(NAME)
 
 OBJ = $(patsubst src/%.cpp, $(OBJDIR)/%.o, $(SRC))
 
-$(OBJDIR)/%.o : src/%.c
+$(OBJDIR)/%.o : src/%.cpp
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Megaphone compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Phonebook compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo "$(VIOLET)Phonebook compiled$(DEF_COLOR)"
 

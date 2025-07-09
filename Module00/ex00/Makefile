@@ -6,7 +6,7 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/07/02 17:43:27 by fracurul         ###   ########.fr        #
+#    Updated: 2025/07/09 13:04:37 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = megaphone.cpp
+COMMON_SRC = src/megaphone.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -26,7 +26,7 @@ all : $(NAME)
 
 OBJ = $(patsubst src/%.cpp, $(OBJDIR)/%.o, $(SRC))
 
-$(OBJDIR)/%.o : src/%.c
+$(OBJDIR)/%.o : src/%.cpp
 	@mkdir -p $(@D)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
