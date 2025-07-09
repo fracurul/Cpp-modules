@@ -6,11 +6,11 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/07/02 17:43:27 by fracurul         ###   ########.fr        #
+#    Updated: 2025/07/09 09:01:30 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := megaphone
+NAME := phonebook
 
 CC := c++
 
@@ -18,7 +18,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = megaphone.cpp
+COMMON_SRC = contact.cpp phonebook.cpp main.cpp \
 
 SRC = $(COMMON_SRC)
 
@@ -33,7 +33,7 @@ $(OBJDIR)/%.o : src/%.c
 $(NAME) : $(OBJ)
 	@echo "$(ORANGE)Megaphone compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Megaphone compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Phonebook compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"

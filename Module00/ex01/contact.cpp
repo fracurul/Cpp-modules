@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:51:15 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/07 16:01:43 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:01:46 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "contact.hpp"
 
 void Contact::setFirstName(const std::string& name){
 	firstname = name;
@@ -22,7 +22,7 @@ void Contact::setNickName(const std::string& nname){
 	nickname = nname;
 }
 void Contact::setPhoneNumber(const std::string& number){
-	phonenumber = number;	
+	phonenumber = number;
 }
 void Contact::setDarkestSecret(const std::string& secret){
 	darkestsecret = secret;
