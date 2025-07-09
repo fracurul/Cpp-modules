@@ -6,11 +6,25 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:17:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/09 09:01:56 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/07/09 10:04:58 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
+
+std::string ask(const std::string& prompt)
+{
+	std::string value;
+	do
+	{
+		std::cout << prompt;
+		std::getline(std::cin, value);
+		if(value.empty())
+			std::cout << "Field can not be empty, please try again." << std::endl;
+	}
+	while (value.empty());
+	return (value);
+}
 
 int main()
 {
@@ -25,19 +39,6 @@ int main()
 		if (cmd == "ADD")
 		{
 			Contact newContact;
-			auto ask = [](const std::string& prompt)
-			{
-				std::string value;
-				do
-				{
-					std::cout << prompt;
-					std::getline(std::cin, value);
-					if(value.empty())
-						std::cout << "Field can not be empty, please try again." << std::endl;
-				}
-				while (value.empty());
-				return (value);
-			};
 			newContact.setFirstName(ask("First name: "));
 			newContact.setLastName(ask("Last name: "));
 			newContact.setNickName(ask("Nickname: "));
@@ -71,7 +72,9 @@ int main()
 				std::cout << "Invalid index." << std::endl;
 				continue ;
 			}
-			int index = std::stoi(input);
+			std::istringstream number(input);
+			int index;
+			number >> index;
 			phonebook.ShowContact(index);
 		}
 		else if(cmd == "EXIT")
@@ -80,7 +83,7 @@ int main()
 			break ;
 		}
 		else
-			std::cout << "Command not recognized, use ADD, SEARCH or EXIT";
+			std::cout << "Command not recognized, use ADD, SEARCH or EXIT" << std::endl;
 	}
 	return (0);
 }

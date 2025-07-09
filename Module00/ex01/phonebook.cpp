@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 17:06:27 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/09 09:02:02 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/07/09 10:07:00 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void PhoneBook::DisplayContacts() const
 		std::cout << std::setw(10) << i << "|"
 				<< std::setw(10) << TrimField(contacts[i].getFirstName()) << "|"
 				<< std::setw(10) << TrimField(contacts[i].getLastName()) << "|"
-				<< std::setw(10) << TrimField(contacts[i].getNickName()) << std::endl;
+				<< std::setw(10) << TrimField(contacts[i].getNickName()) << "|" << std::endl;
 	}
 }
 

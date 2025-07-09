@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 15:00:06 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/09 09:15:31 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/07/09 09:48:20 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 #include <algorithm>
 
 
-
-
-
+std::string trim(const std::string& str)
+{
+	size_t start = str.find_first_not_of(" \t\n\r\f\v");
+	if (start == std::string::npos)
+		return ("");
+	size_t end = str.find_last_not_of(" \t\n\r\f\v");
+	return (str.substr(start, end - start + 1));
+}
 
 int main(int ac, char **av)
 {
@@ -30,7 +35,8 @@ int main(int ac, char **av)
 	{
 		for (int i = 1; i < ac; i++)
 		{
-			str.append(av[i]);
+			std::string arg = trim(av[i]);
+			str.append(arg);
 			if (i != ac -1)
 				str.append(" ");
 		}
