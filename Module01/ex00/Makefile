@@ -6,11 +6,13 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/07/09 12:54:07 by fracurul         ###   ########.fr        #
+#    Updated: 2025/07/10 17:47:02 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := brainz
+
+INCLUDES := includes
 
 CC := c++
 
@@ -18,22 +20,22 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = \
+COMMON_SRC = newZombie.cpp randomChump.cpp Zombie.cpp main.cpp
 
 SRC = $(COMMON_SRC)
 
 all : $(NAME)
 
-OBJ = $(patsubst src/%.cpp, $(OBJDIR)/%.o, $(SRC))
+OBJ = $(patsubst %.cpp, $(OBJDIR)/%.o, $(SRC))
 
-$(OBJDIR)/%.o : src/%.c
+$(OBJDIR)/%.o : src/%.cpp
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Account compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Brainz compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Account compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Brainz compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
@@ -47,7 +49,7 @@ fclean : clean
 
 re : fclean all
 
-PHONY: all clean fclean re
+.PHONY: all clean fclean re
 
 # Colors
 
