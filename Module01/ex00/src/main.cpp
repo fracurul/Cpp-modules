@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 17:23:05 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/10 17:48:50 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:50:39 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main()
 	zombie1->announce();
 	delete (zombie1);
 
-	std::cout << "\n== Testing randoChump()==" << std::endl;
+	std::cout << "\n== Testing randomChump()==" << std::endl;
 	
 	randomChump("Price");
 
