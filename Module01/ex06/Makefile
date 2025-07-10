@@ -6,16 +6,16 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/07/11 00:44:17 by fracurul         ###   ########.fr        #
+#    Updated: 2025/07/11 00:43:21 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := harl
+NAME := filter
 INCLUDES := includes
 
 CC := c++
 
-CFLAGS := -Wall -Werror -Wextra -std=c++98
+CFLAGS := -Wall -Werror -Wextra -std=c++98 -Wno-implicit-fallthrough
 
 OBJDIR := obj
 
@@ -32,9 +32,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Harl compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Filter compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Harl compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Filter compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
