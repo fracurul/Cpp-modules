@@ -6,11 +6,11 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/07/29 18:35:06 by fracurul         ###   ########.fr        #
+#    Updated: 2025/07/29 18:45:15 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := fixed
+NAME := fixed1
 INCLUDES := includes
 
 CC := c++
@@ -32,9 +32,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Fixed compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Fixed1 compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Fixed compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Fixed1 compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
