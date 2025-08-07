@@ -6,11 +6,11 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2025/08/05 17:06:31 by fracurul         ###   ########.fr        #
+#    Updated: 2025/08/07 18:41:58 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := diamond
+NAME := brain
 
 INCLUDES := includes
 
@@ -20,7 +20,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98 -Wno-implicit-fallthrough
 
 OBJDIR := obj
 
-COMMON_SRC = ClapTrap.cpp DiamondTrap.cpp FragTrap.cpp main.cpp ScavTrap.cpp
+COMMON_SRC = Animal.cpp Brain.cpp Cat.cpp Dog.cpp main.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -33,9 +33,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)DiamondTrap compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Brain compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)DiamondTrap compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Brain compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
