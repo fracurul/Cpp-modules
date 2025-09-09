@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 15:02:39 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/09 10:29:31 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:50:02 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Contact.hpp"
 #include <iomanip>
 #include <sstream>
+#include <stdlib.h>
 
 class PhoneBook
 {

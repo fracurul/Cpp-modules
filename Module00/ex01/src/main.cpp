@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:17:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/09 10:29:17 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/09/09 17:58:18 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ std::string ask(const std::string& prompt)
 	{
 		std::cout << prompt;
 		std::getline(std::cin, value);
-		if(value.empty())
+		if (value.empty())
+		{
 			std::cout << "Field can not be empty, please try again." << std::endl;
+			exit(EXIT_FAILURE);
+		}
 	}
 	while (value.empty());
-	return (value);
+		return (value);
 }
 
 int main()
@@ -36,6 +39,8 @@ int main()
 	{
 		std::cout << "Introduce a command: ";
 		std::getline(std::cin, cmd);
+		if(cmd.empty())
+			exit(EXIT_FAILURE);
 		if (cmd == "ADD")
 		{
 			Contact newContact;
