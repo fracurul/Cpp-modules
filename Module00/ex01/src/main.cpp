@@ -6,26 +6,43 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 16:17:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/09/09 17:58:18 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:28:42 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <cstdio>
 
 std::string ask(const std::string& prompt)
 {
 	std::string value;
+	int			flag = 0;
 	do
 	{
 		std::cout << prompt;
-		std::getline(std::cin, value);
-		if (value.empty())
+		if (!std::getline(std::cin, value) || std::cin.eof())
+		{
+			std::cout << std::endl;
+			std::cout << "Goodbye!" << std::endl;
+			exit(EXIT_SUCCESS);
+		}
+		flag = 0;
+		for (size_t i = 0; i < value.length(); i++)
+		{
+			if (!isprint(value[i]))
+			{
+				std::cout << "Please use english printable characters." << std::endl;
+				flag = 1;
+				break ;
+			}
+		}
+		if (value.empty() && !flag)
 		{
 			std::cout << "Field can not be empty, please try again." << std::endl;
-			exit(EXIT_FAILURE);
+			flag = 1;
 		}
 	}
-	while (value.empty());
+	while (value.empty() || flag == 1);
 		return (value);
 }
 
@@ -34,13 +51,16 @@ int main()
 	PhoneBook phonebook;
 	std::string cmd;
 
-	std::cout << "Welcome, available commands: ADD, SEARCH, EXIT " << std::endl;
 	while (true)
 	{
+		std::cout << "Welcome, available commands: ADD, SEARCH, EXIT" << std::endl;
 		std::cout << "Introduce a command: ";
-		std::getline(std::cin, cmd);
-		if(cmd.empty())
-			exit(EXIT_FAILURE);
+		if(!std::getline(std::cin, cmd))
+		{
+			std::cout << std::endl;
+			std::cout << "Goodbye!" << std::endl;
+			exit(EXIT_SUCCESS);
+		}
 		if (cmd == "ADD")
 		{
 			Contact newContact;
