@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 23:33:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/10 23:55:10 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/10/04 17:14:30 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,9 @@ int	main(int ac, char** av)
 	Harl harl;
 	std::string level = av[1];
 
-	std::cout << "== Testing Harl´s complaints ==\n" << std::endl;
-	
-	std::cout << "== [DEBUG] ==" << std::endl;
-	harl.complain("DEBUG");
-	
-	std::cout << "\n== [INFO] ==" << std::endl;
-	harl.complain("INFO");
+	std::cout << "== Testing Harl´s complaint for level: " << level << " ==\n" << std::endl;
 
-	std::cout << "\n== [WARNING] ==" << std::endl;
-	harl.complain("WARNING");
+	harl.complain(level);
 
-	std::cout << "\n== [ERROR]==" << std::endl;
-	harl.complain("ERROR");
 	return (0);
 }
