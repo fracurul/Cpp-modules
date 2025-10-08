@@ -16,8 +16,7 @@ INCLUDES := includes
 
 CC := c++
 
-CFLAGS := -Wall -Werror -Wextra -std=c++98 -Wno-implicit-fallthrough
-
+CFLAGS := -Wall -Werror -Wextra -std=c++98
 OBJDIR := obj
 
 COMMON_SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp

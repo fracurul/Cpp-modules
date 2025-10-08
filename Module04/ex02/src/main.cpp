@@ -17,11 +17,10 @@
 
 int	main()
 {
-
 	std::cout << "===Brain test===" << std::endl;
 
 	const int		aSize = 4;
-	const Animal*	animal[aSize];
+	const AAnimal*	animal[aSize];
 
 	for (int i = 0; i < aSize / 2; i++)
 		animal[i] = new Dog();
@@ -35,21 +34,6 @@ int	main()
 
 	for (int i = 0; i < aSize; i++)
 		animal[i]->makeSound();
-
-	std::cout << std::endl;
-
-	std::cout << "===Deep Copy Test===" << std::endl;
-
-	Dog basic;
-	std::cout << std::endl;
-	std::cout << "==Creating tmp  copy==" << std::endl;
-	{
-		Dog tmp = basic;
-		std::cout << std::endl;
-	}
-	std::cout << std::endl;
-
-	std::cout << "==tmp destroyed, basic still exists==" << std::endl;
 
 	std::cout << std::endl;
 
