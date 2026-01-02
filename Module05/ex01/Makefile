@@ -6,11 +6,11 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2026/01/02 07:16:15 by fracurul         ###   ########.fr        #
+#    Updated: 2026/01/02 08:17:21 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := maggots
+NAME := form
 
 INCLUDES := includes
 
@@ -20,7 +20,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98 -Wno-implicit-fallthrough
 
 OBJDIR := obj
 
-COMMON_SRC = Bureaucrat.cpp main.cpp
+COMMON_SRC = Bureaucrat.cpp Form.cpp main.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -33,9 +33,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Bureaucrat compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Form compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Bureaucrat compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Form compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"

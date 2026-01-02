@@ -6,24 +6,25 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 04:06:37 by fracurul          #+#    #+#             */
-/*   Updated: 2026/01/02 06:37:52 by fracurul         ###   ########.fr       */
+/*   Updated: 2026/01/02 08:15:59 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
 int	main()
 {
 	std::cout << "\n === TEST 1: Validate creation ===\n" << std::endl;
 	try
 	{
-		Bureaucrat	b1("Felipe", 1);
-		Bureaucrat	b2("Ana", 150);
-		Bureaucrat	b3("Ramiro", 75);
+		Form	f1("TAX", 50, 25);
+		Form	f2("SELL", 125, 100);
+		Form	f3("BUY", 30, 15);
 
-		std::cout << b1 << std::endl;
-		std::cout << b2 << std::endl;
-		std::cout << b3 << std::endl;
+		std::cout << f1 << std::endl;
+		std::cout << f2 << std::endl;
+		std::cout << f3 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -33,13 +34,13 @@ int	main()
 	std::cout << "\n === TEST 2: Grade too high ===\n" << std::endl;
 	try
 	{
-		Bureaucrat	b4("Marcela", 0);
+		Form	f4("BUY", 151, 150);
 	}
 	catch(const std::exception& e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-
+/*
 	std::cout << "\n === TEST 3: Grade too low ===\n" << std::endl;
 	try
 	{
@@ -105,6 +106,6 @@ int	main()
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-
+*/
 	return (0);
 }
