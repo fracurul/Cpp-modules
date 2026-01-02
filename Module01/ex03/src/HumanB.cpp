@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 20:48:04 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/10 20:54:49 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/10/04 17:07:55 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	HumanB::attack()
 		std::cout << name << " has no weapon to attack with" << std::endl;
 }
 
-void	HumanB::setWeapon(Weapon& weapon){
-	this->weapon = &weapon;
+void	HumanB::setWeapon(Weapon* weapon){
+	this->weapon = weapon;
 }

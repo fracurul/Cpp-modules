@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/07 15:02:39 by fracurul          #+#    #+#             */
-/*   Updated: 2025/09/10 16:34:33 by fracurul         ###   ########.fr       */
+/*   Created: 2025/08/05 19:07:28 by fracurul          #+#    #+#             */
+/*   Updated: 2025/08/07 18:22:32 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
-#include <iomanip>
-#include <sstream>
-#include <stdlib.h>
-#include <cctype>
+#ifndef CAT_HPP
+#define CAT_HPP
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class PhoneBook
+class	Cat : public AAnimal
 {
 	public:
-	PhoneBook();
+		Cat();
+		Cat(const Cat& copy);
+		Cat& operator=(const Cat& other);
+		~Cat();
 
-	void AddContact(const Contact& contact);
-	void DisplayContacts() const;
-	void ShowContact(int index) const;
-	int getTotalContacts() const;
+		void	makeSound() const;
 
 	private:
-	Contact contacts[8];
-	int NextIndex;
-	int TotalContacts;
-	std::string TrimField(const std::string& field) const;
+		Brain *brain;
 };
 
 #endif

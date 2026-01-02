@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 20:57:10 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/10 21:14:53 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/10/04 19:06:31 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main()
 {
-	
+
 	std::cout << "== Testing HumanA ==\n" << std::endl;
 	{
 		Weapon weapon = Weapon("crude spiked club");
@@ -30,8 +30,8 @@ int	main()
 	{
 		Weapon weapon = Weapon("crude spiked club");
 		HumanB michael("Michael");
-		
-		michael.setWeapon(weapon);
+
+		michael.setWeapon(NULL);
 		michael.attack();
 		weapon.setType("some other type of weapon");
 		michael.attack();

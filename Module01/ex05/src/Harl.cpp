@@ -6,18 +6,18 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/10 23:09:53 by fracurul          #+#    #+#             */
-/*   Updated: 2025/07/10 23:32:43 by fracurul         ###   ########.fr       */
+/*   Updated: 2025/10/04 18:47:21 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 Harl::Harl(){
-	
+
 }
 
 Harl::~Harl(){
-	
+
 }
 
 void	Harl::debug(){
@@ -38,22 +38,22 @@ void	Harl::error(){
 
 void	Harl::complain(std::string level)
 {
-	void(Harl::*functions[])() = 
+	void(Harl::*functions[])() =
 	{
 		&Harl::debug,
 		&Harl::info,
 		&Harl::warning,
 		&Harl::error
 	};
-	
-	std::string levels[] = 
+
+	std::string levels[] =
 	{
 		"DEBUG",
 		"INFO",
 		"WARNING",
 		"ERROR",
 	};
-	
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
@@ -62,4 +62,5 @@ void	Harl::complain(std::string level)
 			return ;
 		}
 	}
+	std::cout << "Invalid level: " << level << std::endl;
 }

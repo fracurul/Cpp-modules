@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/07 15:02:39 by fracurul          #+#    #+#             */
-/*   Updated: 2025/09/10 16:34:33 by fracurul         ###   ########.fr       */
+/*   Created: 2025/08/07 18:02:14 by fracurul          #+#    #+#             */
+/*   Updated: 2025/08/07 18:43:23 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
-#include <iomanip>
-#include <sstream>
-#include <stdlib.h>
-#include <cctype>
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
+#include <string>
+#include <iostream>
 
-class PhoneBook
+class	Brain
 {
 	public:
-	PhoneBook();
+		Brain();
+		Brain(const Brain& copy);
+		Brain& operator=(const Brain& other);
+		~Brain();
 
-	void AddContact(const Contact& contact);
-	void DisplayContacts() const;
-	void ShowContact(int index) const;
-	int getTotalContacts() const;
+		void			setIdea(int index, const std::string& idea);
+		std::string		getIdea(int index) const;
 
 	private:
-	Contact contacts[8];
-	int NextIndex;
-	int TotalContacts;
-	std::string TrimField(const std::string& field) const;
+		std::string	ideas[100];
 };
 
 #endif

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/10 23:33:00 by fracurul          #+#    #+#             */
-/*   Updated: 2025/10/04 17:14:30 by fracurul         ###   ########.fr       */
+/*   Created: 2025/08/05 19:05:07 by fracurul          #+#    #+#             */
+/*   Updated: 2025/08/07 18:16:09 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
+#include <string>
+#include <iostream>
 
-int	main(int ac, char** av)
+class	AAnimal
 {
+	public:
+		AAnimal();
+		AAnimal(const std::string& type);
+		AAnimal(const AAnimal& copy);
+		AAnimal& operator=(const AAnimal& other);
+		virtual ~AAnimal();
 
-	if (ac != 2)
-		return(std::cout << "Program: " << av[0] << " level" << std::endl, 1);
+		virtual void	makeSound() const = 0;
+		std::string		getType() const;
 
-	Harl harl;
-	std::string level = av[1];
+	protected:
+		std::string	type;
+};
 
-	std::cout << "== Testing Harl´s complaint for level: " << level << " ==\n" << std::endl;
-
-	harl.complain(level);
-
-	return (0);
-}
+#endif
