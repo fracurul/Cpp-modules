@@ -94,6 +94,12 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 
 void	Bureaucrat::signForm(Form& form)
 {
+	if (form.isSigned())
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName()
+		<< " because it is already signed" << std::endl;
+		return;
+	}
 	try
 	{
 		form.beSigned(*this);
