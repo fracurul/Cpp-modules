@@ -6,11 +6,12 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 04:06:34 by fracurul          #+#    #+#             */
-/*   Updated: 2026/01/02 07:51:34 by fracurul         ###   ########.fr       */
+/*   Updated: 2026/01/02 07:34:50 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
 // Constructor por defecto
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(150)
@@ -89,4 +90,20 @@ std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
 	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << ".";
 	return (os);
+}
+
+void	Bureaucrat::signForm(Form& form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Exception: " << this->_name << " couldn´t sign " << form.getName()
+		<< " because " << e.what() << std::endl;
+	}
+
 }
