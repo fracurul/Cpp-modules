@@ -6,7 +6,7 @@
 /*   By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 04:06:34 by fracurul          #+#    #+#             */
-/*   Updated: 2026/01/02 07:34:50 by fracurul         ###   ########.fr       */
+/*   Updated: 2026/01/12 18:05:07 by fracurul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void	Bureaucrat::signForm(Form& form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << "Exception: " << this->_name << " couldn´t sign " << form.getName()
+		std::cout << "Exception: " << this->_name << " couldn't sign " << form.getName()
 		<< " because " << e.what() << std::endl;
 	}
 

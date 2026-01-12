@@ -34,9 +34,7 @@ void RobotomyRequestForm::executeAction() const
 {
 	std::cout << "* DRILLING NOISES *" << std::endl;
 	std::cout << "Bzzzzzz... Wrrrr... Clink clink clink..." << std::endl;
-	
-	// 50% chance of success
-	std::srand(std::time(NULL));
+
 	if (std::rand() % 2 == 0)
 		std::cout << this->_target << " has been robotomized successfully!" << std::endl;
 	else

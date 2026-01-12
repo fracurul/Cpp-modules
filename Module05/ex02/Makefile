@@ -6,7 +6,7 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2026/01/02 08:17:21 by fracurul         ###   ########.fr        #
+#    Updated: 2026/01/12 18:07:25 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,9 +34,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Form compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Execute compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Form compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Execute compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
@@ -46,6 +46,7 @@ clean :
 fclean : clean
 	@echo "$(ORANGE)Deleting executable files...$(DEF_COLOR)"
 	@rm -f $(NAME)
+	@rm -f *_shrubbery
 	@echo "$(VIOLET)All executable files has been deleted.$(DEF_COLOR)"
 
 re : fclean all

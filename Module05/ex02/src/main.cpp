@@ -5,9 +5,12 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 int	main()
 {
+	std::srand(std::time(NULL));
 	std::cout << "\n=== TEST 1: ShrubberyCreationForm ===\n" << std::endl;
 	try
 	{
@@ -179,15 +182,15 @@ int	main()
 		PresidentialPardonForm pardon("Trillian");
 
 		std::cout << boss << std::endl;
-		std::cout << "\n--- Shrubbery Form ---" << std::endl;
+		std::cout << "\n== Shrubbery Form ==" << std::endl;
 		boss.signForm(shrub);
 		boss.executeForm(shrub);
 
-		std::cout << "\n--- Robotomy Form ---" << std::endl;
+		std::cout << "\n== Robotomy Form ==" << std::endl;
 		boss.signForm(robo);
 		boss.executeForm(robo);
 
-		std::cout << "\n--- Presidential Pardon Form ---" << std::endl;
+		std::cout << "\n== Presidential Pardon Form ==" << std::endl;
 		boss.signForm(pardon);
 		boss.executeForm(pardon);
 	}
