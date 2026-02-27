@@ -14,8 +14,8 @@ int	main()
 	std::cout << "\n=== TEST 1: ShrubberyCreationForm ===\n" << std::endl;
 	try
 	{
-		Bureaucrat bob("Bob", 140);
-		ShrubberyCreationForm shrubForm("home");
+		Bureaucrat				bob("Bob", 140);
+		ShrubberyCreationForm	shrubForm("home");
 
 		std::cout << bob << std::endl;
 		std::cout << shrubForm << std::endl;
@@ -31,8 +31,8 @@ int	main()
 	std::cout << "\n=== TEST 2: RobotomyRequestForm ===\n" << std::endl;
 	try
 	{
-		Bureaucrat alice("Alice", 40);
-		RobotomyRequestForm roboForm("Bender");
+		Bureaucrat			alice("Alice", 40);
+		RobotomyRequestForm	roboForm("Bender");
 
 		std::cout << alice << std::endl;
 		std::cout << roboForm << std::endl;
@@ -48,8 +48,8 @@ int	main()
 	std::cout << "\n=== TEST 3: PresidentialPardonForm ===\n" << std::endl;
 	try
 	{
-		Bureaucrat president("President", 1);
-		PresidentialPardonForm pardonForm("Arthur Dent");
+		Bureaucrat				president("President", 1);
+		PresidentialPardonForm	pardonForm("Arthur Dent");
 
 		std::cout << president << std::endl;
 		std::cout << pardonForm << std::endl;
@@ -65,8 +65,8 @@ int	main()
 	std::cout << "\n=== TEST 4: Execute without signing ===\n" << std::endl;
 	try
 	{
-		Bureaucrat charlie("Charlie", 1);
-		ShrubberyCreationForm unsignedForm("garden");
+		Bureaucrat				charlie("Charlie", 1);
+		ShrubberyCreationForm	unsignedForm("garden");
 
 		std::cout << charlie << std::endl;
 		std::cout << unsignedForm << std::endl;
@@ -81,9 +81,9 @@ int	main()
 	std::cout << "\n=== TEST 5: Execute with insufficient grade ===\n" << std::endl;
 	try
 	{
-		Bureaucrat lowGrade("LowGrade", 150);
-		Bureaucrat signer("Signer", 1);
-		PresidentialPardonForm pardon("Criminal");
+		Bureaucrat				lowGrade("LowGrade", 150);
+		Bureaucrat				signer("Signer", 1);
+		PresidentialPardonForm	pardon("Criminal");
 
 		std::cout << lowGrade << std::endl;
 		std::cout << pardon << std::endl;
@@ -99,8 +99,8 @@ int	main()
 	std::cout << "\n=== TEST 6: Sign with insufficient grade ===\n" << std::endl;
 	try
 	{
-		Bureaucrat intern("Intern", 150);
-		PresidentialPardonForm pardon("VIP");
+		Bureaucrat				intern("Intern", 150);
+		PresidentialPardonForm	pardon("VIP");
 
 		std::cout << intern << std::endl;
 		std::cout << pardon << std::endl;
@@ -115,8 +115,8 @@ int	main()
 	std::cout << "\n=== TEST 7: ShrubberyCreationForm - Complete success ===\n" << std::endl;
 	try
 	{
-		Bureaucrat gardener("Gardener", 130);
-		ShrubberyCreationForm shrub("garden");
+		Bureaucrat				gardener("Gardener", 130);
+		ShrubberyCreationForm	shrub("garden");
 
 		std::cout << gardener << std::endl;
 		std::cout << shrub << std::endl;
@@ -133,10 +133,10 @@ int	main()
 	std::cout << "\n=== TEST 8: RobotomyRequestForm - Multiple attempts ===\n" << std::endl;
 	try
 	{
-		Bureaucrat engineer("Engineer", 40);
-		RobotomyRequestForm robo1("Target1");
-		RobotomyRequestForm robo2("Target2");
-		RobotomyRequestForm robo3("Target3");
+		Bureaucrat			engineer("Engineer", 40);
+		RobotomyRequestForm	robo1("Target1");
+		RobotomyRequestForm	robo2("Target2");
+		RobotomyRequestForm	robo3("Target3");
 
 		std::cout << engineer << std::endl;
 
@@ -159,8 +159,8 @@ int	main()
 	std::cout << "\n=== TEST 9: PresidentialPardonForm - Complete success ===\n" << std::endl;
 	try
 	{
-		Bureaucrat vip("VIP_Bureaucrat", 3);
-		PresidentialPardonForm pardon("Ford Prefect");
+		Bureaucrat				vip("VIP_Bureaucrat", 3);
+		PresidentialPardonForm	pardon("Ford Prefect");
 
 		std::cout << vip << std::endl;
 		std::cout << pardon << std::endl;
@@ -176,10 +176,10 @@ int	main()
 	std::cout << "\n=== TEST 10: All forms with top bureaucrat ===\n" << std::endl;
 	try
 	{
-		Bureaucrat boss("TheBoss", 1);
-		ShrubberyCreationForm shrub("office");
-		RobotomyRequestForm robo("Marvin");
-		PresidentialPardonForm pardon("Trillian");
+		Bureaucrat				boss("TheBoss", 1);
+		ShrubberyCreationForm	shrub("office");
+		RobotomyRequestForm		robo("Marvin");
+		PresidentialPardonForm	pardon("Trillian");
 
 		std::cout << boss << std::endl;
 		std::cout << "\n== Shrubbery Form ==" << std::endl;
