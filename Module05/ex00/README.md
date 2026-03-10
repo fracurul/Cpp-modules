@@ -51,3 +51,10 @@ catch (const std::exception& e)
 - `throw()` specification (C++98)
 - `try-catch` blocks.
 - Const correctness
+
+## Usage
+
+```bash
+make
+./bureaucrat
+```
