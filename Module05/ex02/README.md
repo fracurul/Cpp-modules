@@ -102,5 +102,5 @@ catch (const std::exception& e)
 
 ```bash
 make
-./form
+./execute
 ```
