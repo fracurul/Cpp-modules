@@ -9,39 +9,38 @@ A C++ program that performs scalar type conversions. It automatically detects th
 - **char**: Single character (a-z, A-Z, etc.)
 - **int**: Integer numbers (-2147483648 to 2147483647)
 - **float**: Decimal numbers (suffix 'f')
-- **double**: Double precision decimal numbers
+- **double**: Double precision decimal numbers.
 
 ## Features
 
-- Automatic input type detection
-- Conversion to all scalar types
+- Automatic input type detection.
+- Conversion to all scalar types.
 - Special value handling (inf, -inf, nan)
-- Range limit validation
-- Custom output formatting per type
+- Range limit validation.
+- Custom output formatting per type.
 
 
 ## Class
 
 **ScalarConvert**
-- Static class for performing scalar type conversions
+- Static class for performing scalar type conversions.
 - Main method: `convert(const std::string& input)`
-- Private methods for type detection and formatted output
+- Private methods for type detection and formatted output.
 
 ## Behavior
 
 The program:
-1. Receives a string as an argument
+1. Receives a string as an argument.
 2. Detects the data type (char, int, float, double)
-3. Converts it to all types
-4. Prints the results with corresponding formatting
+3. Converts it to all types.
+4. Prints the results with corresponding formatting.
 
 ## Technical Notes
 
-- Implemented in **C++98**
+- Implemented in **C++98**.
 - Uses static type casting (`static_cast`)
-- Handles overflow/underflow exceptions
-- Respects the limits of each data type
-
+- Handles overflow/underflow exceptions.
+- Respects the limits of each data type.
 
 ## Usage
 
