@@ -22,7 +22,12 @@ int		ScalarConvert::inputType(const std::string& input)
 	if (input == "nan" || input == "nanf" || input == "+inf" || input == "-inf"
 		|| input == "+inff" || input == "-inff")
 		return (SPECIAL);
-	std::istringstream iss(input);
+
+	std::string trimmed = input;
+	if (!trimmed.empty() && (trimmed[trimmed.length() - 1] == 'f' || trimmed[trimmed.length() - 1] == 'F'))
+		trimmed = trimmed.substr(0, trimmed.length() - 1);
+
+	std::istringstream iss(trimmed);
 	double	value;
 	if (iss >> value && iss.eof())
 		return (NUMBER);
@@ -83,31 +88,31 @@ void	ScalarConvert::printDouble(double value)
 	std::cout << std::fixed << std::setprecision(1) << value << std::endl;
 }
 
-void	ScalarConvert::printFloat(double value)
+void	ScalarConvert::printFloat(double value, char suffix)
 {
 	std::cout << "float: ";
 
 	if (std::isnan(value))
 	{
-		std::cout << "nanf" << std::endl;
+		std::cout << "nan" << suffix << std::endl;
 		return ;
 	}
 	if (std::isinf(value))
 	{
 		if (value > 0)
-			std::cout << "+inff" << std::endl;
+			std::cout << "+inf" << suffix << std::endl;
 		else
-			std::cout << "-inff" << std::endl;
+			std::cout << "-inf" << suffix << std::endl;
 		return ;
 	}
-	std::cout << std::fixed << std::setprecision(1) << value << std::endl;
+	std::cout << std::fixed << std::setprecision(1) << value << suffix << std::endl;
 }
 
-void	ScalarConvert::print(double value)
+void	ScalarConvert::print(double value, char suffix)
 {
 	printChar(value);
 	printInt(value);
-	printFloat(value);
+	printFloat(value, suffix);
 	printDouble(value);
 
 }
@@ -123,13 +128,17 @@ void	ScalarConvert::printInvalid()
 void	ScalarConvert::convert(const std::string& input)
 {
 	int	type = inputType(input);
+	char suffix = 'f';
+
+	if (!input.empty() && (input[input.length() - 1] == 'f' || input[input.length() - 1] == 'F'))
+		suffix = input[input.length() - 1];
 
 	switch(type)
 	{
 		case (CHAR):
 		{
 			double	value = static_cast<double>(input[1]);
-			print(value);
+			print(value, suffix);
 			break;
 		}
 		case (NUMBER):
@@ -137,7 +146,7 @@ void	ScalarConvert::convert(const std::string& input)
 			std::istringstream iss(input);
 			double	value;
 			iss >> value;
-			print(value);
+			print(value, suffix);
 			break;
 		}
 		case (SPECIAL):
@@ -149,7 +158,7 @@ void	ScalarConvert::convert(const std::string& input)
 				value = std::numeric_limits<double>::infinity();
 			else
 				value = -std::numeric_limits<double>::infinity();
-			print(value);
+			print(value, suffix);
 			break;
 		}
 		case (INVALID):
