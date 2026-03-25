@@ -6,7 +6,7 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/02 14:51:24 by fracurul          #+#    #+#              #
-#    Updated: 2026/01/12 18:07:25 by fracurul         ###   ########.fr        #
+#    Updated: 2026/03/25 08:59:41 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDES := includes
 
 CC := c++
 
-CFLAGS := -Wall -Werror -Wextra -std=c++98 -Wno-implicit-fallthrough
+CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
