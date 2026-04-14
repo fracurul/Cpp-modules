@@ -1,4 +1,4 @@
-#include "../includes/templates.hpp"
+#include "templates.hpp"
 #include <vector>
 
 int main(void)
