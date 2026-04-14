@@ -1,4 +1,4 @@
-NAME := iterator
+NAME := span
 
 INCLUDES := includes
 
@@ -8,7 +8,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = main.cpp
+COMMON_SRC = Span.cpp main.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -21,9 +21,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Iterator compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Span compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Iterator compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Span compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
