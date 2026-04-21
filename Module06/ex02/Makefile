@@ -6,7 +6,7 @@
 #    By: fracurul <fracurul@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/25 09:02:55 by fracurul          #+#    #+#              #
-#    Updated: 2026/04/02 17:26:52 by fracurul         ###   ########.fr        #
+#    Updated: 2026/04/16 15:35:21 by fracurul         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS := -Wall -Werror -Wextra -std=c++98
 
 OBJDIR := obj
 
-COMMON_SRC = Serializer.cpp main.cpp
+COMMON_SRC = Base.cpp main.cpp
 
 SRC = $(COMMON_SRC)
 
@@ -34,9 +34,9 @@ $(OBJDIR)/%.o : src/%.cpp
 	@$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 $(NAME) : $(OBJ)
-	@echo "$(ORANGE)Serializer compiling...$(DEF_COLOR)"
+	@echo "$(ORANGE)Base compiling...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-	@echo "$(VIOLET)Serializer compiled$(DEF_COLOR)"
+	@echo "$(VIOLET)Base compiled$(DEF_COLOR)"
 
 clean :
 	@echo "$(ORANGE)Deleting all object files...$(DEF_COLOR)"
