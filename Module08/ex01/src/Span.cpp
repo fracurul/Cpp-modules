@@ -4,6 +4,18 @@ Span::Span() {}
 
 Span::Span(unsigned int n) : _size(n) {}
 
+Span::Span(const Span& copy) : _size(copy._size), _numbers(copy._numbers) {}
+
+Span&	Span::operator=(const Span& copy)
+{
+	if (this != &copy)
+	{
+		_size = copy._size;
+		_numbers = copy._numbers;
+	}
+	return (*this);
+}
+
 Span::~Span() {}
 
 void	Span::addNumber(int num)

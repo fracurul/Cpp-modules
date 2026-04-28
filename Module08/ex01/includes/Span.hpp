@@ -17,6 +17,8 @@ class	Span
 
 	public:
 		Span();
+		Span(const Span& copy);
+		Span&	operator=(const Span& copy);
 		Span(unsigned int n);
 		~Span();
 

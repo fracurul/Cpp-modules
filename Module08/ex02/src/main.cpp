@@ -57,5 +57,33 @@ int main(void)
 		++lit;
 	}
 
+	std::cout << "\n=== OCF TEST ===" << std::endl;
+	std::cout << "\n== Test 1: Copy Constructor ==" << std::endl;
+	MutantStack<int> mstack2(mstack);
+	MutantStack<int>::it it2 = mstack2.begin();
+	MutantStack<int>::it ite2 = mstack2.end();
+	std::cout << "Copied stack: ";
+	while (it2 != ite2)
+	{
+		std::cout << *it2 << " ";
+		++it2;
+	}
+	std::cout << std::endl;
+
+	std::cout << "\n== Test 2: Assignment Operator ==" << std::endl;
+	MutantStack<int> mstack3;
+	mstack3.push(100);
+	mstack3.push(200);
+	mstack3 = mstack;
+	MutantStack<int>::it it3 = mstack3.begin();
+	MutantStack<int>::it ite3 = mstack3.end();
+	std::cout << "Assigned stack: ";
+	while (it3 != ite3)
+	{
+		std::cout << *it3 << " ";
+		++it3;
+	}
+	std::cout << std::endl;
+
 	return (0);
 }
