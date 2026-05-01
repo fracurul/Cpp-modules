@@ -4,10 +4,15 @@ int	main(int argc, char **argv)
 {
 	try
 	{
-		PmergeMe	pmergeme;
-		pmergeme.parse(argc, argv);
-		pmergeme.sort();
-		pmergeme.display();
+		PmergeMe<std::vector<int> >	pmergeVector;
+		pmergeVector.parse(argc, argv);
+		pmergeVector.sort();
+		pmergeVector.display();
+
+		PmergeMe<std::deque<int> >	pmergeDeque;
+		pmergeDeque.parse(argc, argv);
+		pmergeDeque.sort();
+		pmergeDeque.display();
 	}
 	catch (const std::exception& e)
 	{

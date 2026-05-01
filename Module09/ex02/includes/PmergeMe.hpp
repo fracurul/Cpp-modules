@@ -11,24 +11,20 @@
 #include <iomanip>
 #include <sys/time.h>
 
-class PmergeMe
+template<typename Container>
+class	PmergeMe
 {
 	private:
-		std::vector<int>	_vectorData;
-		std::deque<int>		_dequeData;
-		std::vector<int>	_vectorBefore;
-		std::deque<int>		_dequeBefore;
-		double				_vectorTime;
-		double				_dequeTime;
+		Container			_data;
+		Container			_dataBefore;
+		double				_time;
 
-		std::vector<int>	fordJohnsonVector(std::vector<int> arr);
-		int					binarySearchVector(const std::vector<int>& arr, int value);
+		Container			fordJohnson(Container arr);
+		int					binarySearch(const Container& arr, int value);
 
-		std::deque<int>		fordJohnsonDeque(std::deque<int> arr);
-		int					binarySearchDeque(const std::deque<int>& arr, int value);
+		std::vector<int>	getJacobsthalOrder(size_t size);
+		std::vector<int>	generateJacobsthalNumbers(size_t size);
 
-		void				sortVector();
-		void				sortDeque();
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe& copy);
@@ -40,5 +36,7 @@ class PmergeMe
 		void	sort();
 		void	display() const;
 };
+
+#include "../src/PmergeMe.cpp"
 
 #endif

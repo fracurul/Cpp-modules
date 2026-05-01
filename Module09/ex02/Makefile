@@ -4,11 +4,11 @@ INCLUDES := includes
 
 CC := c++
 
-CFLAGS := -Wall -Werror -Wextra -std=c++98
+CFLAGS := -Wall -Werror -Wextra -std=c++98 -O2
 
 OBJDIR := obj
 
-COMMON_SRC = main.cpp PmergeMe.cpp
+COMMON_SRC = main.cpp
 
 SRC = $(COMMON_SRC)
 
