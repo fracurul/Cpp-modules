@@ -4,11 +4,17 @@
 int main(void)
 {
 	std::cout << "=== Test 1: Find element ===" << std::endl;
-	std::vector<int> vec = {10, 20, 30, 40, 50};
+	std::vector<int> vec;
+	vec.push_back(10);
+	vec.push_back(20);
+	vec.push_back(30);
+	vec.push_back(40);
+	vec.push_back(50);
 	try
 	{
 		std::vector<int>::iterator result = easyfind(vec, 30);
 		std::cout << "Success!" << std::endl;
+		(void)result;
 	}
 	catch (const std::exception& e)
 	{
@@ -19,6 +25,7 @@ int main(void)
 	try
 	{
 		std::vector<int>::iterator result = easyfind(vec, 999);
+		(void)result;
 	}
 	catch (const std::exception& e)
 	{
@@ -30,6 +37,7 @@ int main(void)
 	{
 		std::vector<int>::iterator result = easyfind(vec, 10);
 		std::cout << "Success!" << std::endl;
+		(void)result;
 	}
 	catch (const std::exception& e)
 	{
@@ -41,6 +49,7 @@ int main(void)
 	{
 		std::vector<int>::iterator result = easyfind(vec, 50);
 		std::cout << "Success!" << std::endl;
+		(void)result;
 	}
 	catch (const std::exception& e)
 	{
