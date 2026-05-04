@@ -59,7 +59,7 @@ int main(void)
 	{
 		span4.addNumber(4);
 	}
-	catch (std::out_of_range &e)
+	catch (std::exception &e)
 	{
 		std::cout << "Exception captured: " << e.what() << std::endl;
 	}

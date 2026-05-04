@@ -57,6 +57,17 @@ int main(void)
 		++lit;
 	}
 
+
+	std::cout << "\n=== Reverse Iterator Test ===" << std::endl;
+	MutantStack<int>::rIt rit = mstack.rBegin();
+	MutantStack<int>::rIt rite = mstack.rEnd();
+	std::cout << "Reverse iteration: ";
+	while (rit != rite)
+	{
+		std::cout << *rit << " ";
+		++rit;
+	}
+	std::cout << std::endl;
 	std::cout << "\n=== OCF TEST ===" << std::endl;
 	std::cout << "\n== Test 1: Copy Constructor ==" << std::endl;
 	MutantStack<int> mstack2(mstack);
@@ -84,6 +95,7 @@ int main(void)
 		++it3;
 	}
 	std::cout << std::endl;
+
 
 	return (0);
 }

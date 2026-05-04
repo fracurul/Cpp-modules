@@ -29,4 +29,16 @@ typename MutantStack<T>::constIt	MutantStack<T>::begin() const { return this->c.
 template<typename T>
 typename MutantStack<T>::constIt	MutantStack<T>::end() const { return this->c.end(); }
 
+template<typename T>
+typename MutantStack<T>::rIt	MutantStack<T>::rBegin() { return this->c.rbegin(); }
+
+template<typename T>
+typename MutantStack<T>::rIt	MutantStack<T>::rEnd() { return this->c.rend(); }
+
+template<typename T>
+typename MutantStack<T>::rConstIt	MutantStack<T>::rBegin() const { return this->c.rbegin(); }
+
+template<typename T>
+typename MutantStack<T>::rConstIt	MutantStack<T>::rEnd() const { return this->c.rend(); }
+
 #endif
