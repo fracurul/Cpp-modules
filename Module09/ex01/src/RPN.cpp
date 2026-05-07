@@ -9,8 +9,13 @@ float	RPN::_applyOp(float a, float b, char op)
 		return (a - b);
 	else if (op == '*')
 		return (a * b);
-	else
+	else if (op == '/')
+	{
+		if (b == 0)
+			throw std::runtime_error("Error: division by zero");
 		return (a / b);
+	}
+	return (0);
 }
 
 bool	RPN::_isOp(const std::string& str)
@@ -63,6 +68,8 @@ float	RPN::calculate(const std::string& exp)
 
 	while (iss >> token)
 	{
+		if (token[1])
+			throw std::runtime_error("Error");
 		if (_isNum(token))
 		{
 			std::stringstream	ss(token);

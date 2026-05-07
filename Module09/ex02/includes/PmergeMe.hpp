@@ -34,7 +34,7 @@ class	PmergeMe
 		bool	isPositiveNumber(const std::string& str);
 		void	parse(int argc, char** argv);
 		void	sort();
-		void	display() const;
+		void	display(const std::string& str) const;
 };
 
 #include "../src/PmergeMe.cpp"

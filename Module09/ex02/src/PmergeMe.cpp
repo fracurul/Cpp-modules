@@ -62,7 +62,7 @@ std::vector<int>	PmergeMe<Container>::generateJacobsthalNumbers(size_t size)
 		js.push_back(1);
 	while (js.size() < size)
 	{
-		int	prev = js[js.size() -1];
+		int	prev = js[js.size() - 1];
 		int pPrev = js[js.size() - 2];
 		js.push_back(prev + (2 * pPrev));
 	}
@@ -162,7 +162,7 @@ void	PmergeMe<Container>::parse(int argc, char** argv)
 }
 
 template<typename Container>
-void	PmergeMe<Container>::display() const
+void	PmergeMe<Container>::display(const std::string& str) const
 {
 	std::cout << "Before: ";
 	for (size_t i = 0; i < _dataBefore.size(); i++)
@@ -183,5 +183,5 @@ void	PmergeMe<Container>::display() const
 
 	std::cout << std::fixed << std::setprecision(5);
 	std::cout << "Time to process a range of " << _data.size()
-		<< " elements with this container : " << _time << " us" << std::endl;
+		<< " elements with "<< str << " : " << _time << " us" << std::endl;
 }

@@ -18,6 +18,8 @@ class	BitcoinExchange
 
 		bool		_isValidDate(const std::string& date) const;
 		bool		_isValidValue(const std::string& valStr, double& value) const;
+		bool		_isValidValueFormat(const std::string& valStr) const;
+		bool		_validateDateAndInput(const std::string& date, const std::string& priceStr, const std::string& line, double& value) const;
 		std::string	_trim(const std::string& str) const;
 	public:
 		BitcoinExchange();

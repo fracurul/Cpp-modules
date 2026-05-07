@@ -24,9 +24,47 @@ bool	BitcoinExchange::_isValidDate(const std::string& date) const
 bool	BitcoinExchange::_isValidValue(const std::string& valStr, double& value) const
 {
 	double	val = strtod(valStr.c_str(), NULL);
+	value = val;
 	if (val < 0 || val > 1000)
 		return (false);
-	value = val;
+	return (true);
+}
+
+bool	BitcoinExchange::_isValidValueFormat(const std::string& valStr) const
+{
+	for (size_t i = 0; i < valStr.length(); i++)
+	{
+		if (!isdigit(valStr[i]) && valStr[i] != '.' && valStr[i] != '-' && valStr[i] != '+')
+			return (false);
+	}
+	return (true);
+}
+
+bool	BitcoinExchange::_validateDateAndInput(const std::string& date, const std::string& priceStr, const std::string& line, double& value) const
+{
+	if (!_isValidDate(date))
+	{
+		std::cout << "Error: bad input => " << date << std::endl;
+		return (false);
+	}
+	if (priceStr.empty())
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		return (false);
+	}
+	if (!_isValidValueFormat(priceStr))
+	{
+		std::cout << "Error: bad input => " << line << std::endl;
+		return (false);
+	}
+	if (!_isValidValue(priceStr, value))
+	{
+		if (value < 0)
+			std::cout << "Error: not a positive number." << std::endl;
+		else
+			std::cout << "Error: too large a number." << std::endl;
+		return (false);
+	}
 	return (true);
 }
 
@@ -101,36 +139,34 @@ void	BitcoinExchange::processInputFile(const std::string& filename)
 		return ;
 	}
 	std::string	line;
-	bool	firstLine = true;
+	if (!std::getline(file, line))
+	{
+		std::cerr << "Error: empty file." << std::endl;
+		return ;
+	}
+	if (_trim(line) != "date | value")
+	{
+		std::cerr << "Error: invalid header. Expected 'date | value'" << std::endl;
+		return ;
+	}
 	while (std::getline(file, line))
 	{
-		if (firstLine)
-		{
-			firstLine = false;
-			continue ;
-		}
 		size_t	sep = line.find("|");
 		if (sep == std::string::npos)
 		{
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue ;
 		}
+		if (line.find("|", sep + 1) != std::string::npos)
+		{
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue ;
+		}
 		std::string	date = _trim(line.substr(0, sep));
 		std::string	priceStr = _trim(line.substr(sep + 1));
-		if (!_isValidDate(date))
-		{
-			std::cout << "Error: bad input => " << date << std::endl;
-			continue ;
-		}
 		double	value;
-		if (!_isValidValue(priceStr, value))
-		{
-			if (value < 0)
-				std::cout << "Error: not a positive number." << std::endl;
-			else
-				std::cout << "Error: too large a number." << std::endl;
+		if (!_validateDateAndInput(date, priceStr, line, value))
 			continue ;
-		}
 		std::map<std::string, double>::iterator	it = _priceDB.lower_bound(date);
 		if (it == _priceDB.begin() && it->first != date)
 		{

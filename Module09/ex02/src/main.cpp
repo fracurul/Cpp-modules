@@ -7,12 +7,13 @@ int	main(int argc, char **argv)
 		PmergeMe<std::vector<int> >	pmergeVector;
 		pmergeVector.parse(argc, argv);
 		pmergeVector.sort();
-		pmergeVector.display();
+		pmergeVector.display("std::vector");
+
 
 		PmergeMe<std::deque<int> >	pmergeDeque;
 		pmergeDeque.parse(argc, argv);
 		pmergeDeque.sort();
-		pmergeDeque.display();
+		pmergeDeque.display("std::deque");
 	}
 	catch (const std::exception& e)
 	{
